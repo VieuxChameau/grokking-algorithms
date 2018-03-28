@@ -1,5 +1,7 @@
 package org.vieuxchameau
 
+const val NOT_FOUND = -1
+
 /**
  * numbers has to be sorted
  */
@@ -17,5 +19,25 @@ fun binarySearch(numbers: IntArray, toFind: Int): Int {
             start = index + 1
         }
     }
-    return -1
+    return NOT_FOUND
 }
+
+fun binarySearchRec(numbers: IntArray, toFind: Int) = binarySearchRec(numbers, toFind, 0, numbers.size - 1)
+
+private fun binarySearchRec(numbers: IntArray, toFind: Int, start: Int, end: Int): Int {
+    if (start > end) {
+        return NOT_FOUND
+    }
+
+    val index = ((end - start) / 2) + start
+    if (numbers[index] == toFind) {
+        return index
+    }
+
+    return if (numbers[index] > toFind) {
+        binarySearchRec(numbers, toFind, start, index - 1)
+    } else {
+        binarySearchRec(numbers, toFind, index + 1, end)
+    }
+}
+
