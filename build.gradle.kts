@@ -27,9 +27,10 @@ repositories {
 
 dependencies {
     compile(kotlinModule("stdlib-jdk8", kotlin_version))
-    testCompile("org.junit.jupiter", "junit-jupiter-api", "5.1.0")
-    testCompile("org.junit.jupiter", "junit-jupiter-engine", "5.1.0")
-    testCompile("org.junit.jupiter", "junit-jupiter-params", "5.1.0")
+    val junit5Version = "5.2.0"
+    testCompile("org.junit.jupiter", "junit-jupiter-api", junit5Version)
+    testCompile("org.junit.jupiter", "junit-jupiter-engine", junit5Version)
+    testCompile("org.junit.jupiter", "junit-jupiter-params", junit5Version)
     testCompile("org.assertj", "assertj-core", "3.9.0")
 }
 
