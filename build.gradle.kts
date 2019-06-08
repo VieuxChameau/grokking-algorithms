@@ -2,21 +2,23 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 buildscript {
     var kotlin_version: String by extra
-    kotlin_version = "1.2.21"
+    kotlin_version = "1.3.31"
 
     repositories {
         mavenCentral()
     }
     dependencies {
-        classpath(kotlinModule("gradle-plugin", kotlin_version))
+        classpath(kotlin("gradle-plugin", version = kotlin_version))
     }
 }
 
 group = "org.vieuxchameau"
 version = "1.0.0-SNAPSHOT"
+java.sourceCompatibility = JavaVersion.VERSION_12
+java.targetCompatibility = JavaVersion.VERSION_12
 
-apply {
-    plugin("kotlin")
+plugins {
+    kotlin("jvm") version "1.3.31"
 }
 
 val kotlin_version: String by extra
@@ -26,14 +28,14 @@ repositories {
 }
 
 dependencies {
-    compile(kotlinModule("stdlib-jdk8", kotlin_version))
+    implementation(kotlin("stdlib-jdk8"))
     val junit5Version = "5.2.0"
     testCompile("org.junit.jupiter", "junit-jupiter-api", junit5Version)
     testCompile("org.junit.jupiter", "junit-jupiter-engine", junit5Version)
     testCompile("org.junit.jupiter", "junit-jupiter-params", junit5Version)
-    testCompile("org.assertj", "assertj-core", "3.9.0")
+    testCompile("org.assertj", "assertj-core", "3.12.2")
 }
 
 tasks.withType<KotlinCompile> {
-    kotlinOptions.jvmTarget = "1.8"
+    kotlinOptions.jvmTarget = "12"
 }
