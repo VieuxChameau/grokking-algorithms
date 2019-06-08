@@ -12,7 +12,7 @@ class FactorialKtTest {
             "12, 479001600"
     )
     @ParameterizedTest
-    fun `should calculate the right factorial result`(number: Int, expectedResult: Int) {
+    fun `should calculate the right factorial result`(number: UInt, expectedResult: UInt) {
 
         val result = factorial(number)
 
