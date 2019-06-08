@@ -3,7 +3,7 @@ package org.vieuxchameau
 const val NOT_FOUND = -1
 
 /**
- * numbers has to be sorted
+ * Condition: array has to be sorted
  */
 fun binarySearch(numbers: IntArray, toFind: Int): Int {
     var start = 0
