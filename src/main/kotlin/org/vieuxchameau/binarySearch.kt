@@ -22,6 +22,10 @@ fun binarySearch(numbers: IntArray, toFind: Int): Int {
     return NOT_FOUND
 }
 
+/**
+ * Recursive version of the binary search
+ * Condition: array has to be sorted
+ */
 fun binarySearchRec(numbers: IntArray, toFind: Int) = binarySearchRec(numbers, toFind, 0, numbers.size - 1)
 
 private fun binarySearchRec(numbers: IntArray, toFind: Int, start: Int, end: Int): Int {
