@@ -1,6 +1,6 @@
 package org.vieuxchameau
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
@@ -12,10 +12,10 @@ class GreatestCommonDivisorKtTest {
             "182664, 154875, 177"
     )
     @ParameterizedTest
-    fun `should find gcd`(left: Int, right: Int, expectedSolution: Int) {
+    fun `should find gcd`(left: Int, right: Int, expectedGCD: Int) {
         val solution = gcd(left, right)
 
 
-        Assertions.assertThat(solution).isEqualTo(expectedSolution)
+        assertThat(solution).isEqualTo(expectedGCD)
     }
 }
