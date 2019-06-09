@@ -1,6 +1,6 @@
 package org.vieuxchameau
 
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
 
@@ -11,15 +11,14 @@ class SelectionSortKtTest {
             "100"
     )
     @ParameterizedTest
-    fun `should sort array`(size: Int) {
-        val numbers = IntArray(size) { it * 2 }
-        numbers.reverse()
+    fun `should sort array`(size: UInt) {
+        val numbers = arrayOfRandomInts(size)
 
-        val copy = numbers.copyOf()
-        copy.sort()
-
+        println("Array = ${numbers.asString()}")
         selectionSort(numbers)
 
-        Assertions.assertThat(numbers).isEqualTo(copy)
+        assertThat(numbers).isSorted()
+        println("Sorted Array = ${numbers.asString()}")
     }
 }
+
