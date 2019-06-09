@@ -6,6 +6,7 @@ import org.junit.jupiter.params.provider.CsvSource
 
 class SelectionSortKtTest {
     @CsvSource(
+            "0",
             "1",
             "100"
     )

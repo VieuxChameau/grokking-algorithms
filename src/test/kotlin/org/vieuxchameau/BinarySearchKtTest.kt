@@ -69,6 +69,7 @@ class BinarySearchKtTest {
     companion object {
         @JvmStatic
         fun argProvider() = Stream.of(
+                Arguments.of(0, 1),
                 Arguments.of(1, 1),
                 Arguments.of(100, -5),
                 Arguments.of(100, 100)
