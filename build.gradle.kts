@@ -29,6 +29,7 @@ repositories {
 
 dependencies {
     implementation(kotlin("stdlib-jdk8"))
+    implementation("com.google.guava:guava:28.0-jre")
     val junit5Version = "5.2.0"
     testCompile("org.junit.jupiter", "junit-jupiter-api", junit5Version)
     testCompile("org.junit.jupiter", "junit-jupiter-engine", junit5Version)
