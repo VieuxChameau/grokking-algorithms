@@ -1,6 +1,5 @@
 package org.vieuxchameau
 
-@ExperimentalUnsignedTypes
 fun factorial(number: UInt): UInt {
     return if (number == 0u) {
         1u

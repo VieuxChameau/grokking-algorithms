@@ -39,4 +39,5 @@ dependencies {
 
 tasks.withType<KotlinCompile> {
     kotlinOptions.jvmTarget = "12"
+    kotlinOptions.freeCompilerArgs += "-Xexperimental=kotlin.ExperimentalUnsignedTypes"
 }
