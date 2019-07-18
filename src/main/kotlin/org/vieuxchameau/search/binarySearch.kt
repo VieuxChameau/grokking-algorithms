@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.search
 
 const val NOT_FOUND = -1
 

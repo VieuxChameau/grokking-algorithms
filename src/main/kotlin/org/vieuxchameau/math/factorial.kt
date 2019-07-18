@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.math
 
 fun factorial(number: UInt): UInt {
     return if (number == 0u) {

@@ -1,14 +1,18 @@
-package org.vieuxchameau
+package org.vieuxchameau.graph
 
 import com.google.common.graph.GraphBuilder
 import com.google.common.graph.ImmutableGraph
-import org.assertj.core.api.Assertions
+import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.CsvSource
+import org.vieuxchameau.graph.bfs
+import kotlin.String as Country
 
-class DepthFirstSearchKtTest {
-    private val countriesWithLandBorderNeighbours: ImmutableGraph<String> = GraphBuilder.undirected()
-            .immutable<String>()
+
+class BreadthFirstSearchKtTest {
+
+    private val countriesWithLandBorderNeighbours: ImmutableGraph<Country> = GraphBuilder.undirected()
+            .immutable<Country>()
             .putEdge("Canada", "United States of America")
             .putEdge("United States of America", "Mexico")
             .putEdge("Mexico", "Belize")
@@ -54,12 +58,12 @@ class DepthFirstSearchKtTest {
             "Mexico, Panama"
     )
     @ParameterizedTest
-    fun `should find that countries are connected by land`(source: String, target: String) {
-        val isCountry: (String) -> Boolean = { it == target }
+    fun `should find that countries are connected by land`(source: Country, target: Country) {
+        val isCountry: (Country) -> Boolean = { it == target }
 
-        val areConnected = dfs(countriesWithLandBorderNeighbours, source, isCountry)
+        val areConnected = bfs(countriesWithLandBorderNeighbours, source, isCountry)
 
-        Assertions.assertThat(areConnected).isTrue()
+        assertThat(areConnected).isTrue()
     }
 
     @CsvSource(
@@ -67,11 +71,14 @@ class DepthFirstSearchKtTest {
             "Australia, Panama"
     )
     @ParameterizedTest
-    fun `should find that countries are not connected by land`(source: String, target: String) {
-        val isCountry: (String) -> Boolean = { it == target }
+    fun `should find that countries are not connected by land`(source: Country, target: Country) {
+        val isCountry: (Country) -> Boolean = { it == target }
 
-        val areConnected = dfs(countriesWithLandBorderNeighbours, source, isCountry)
+        val areConnected = bfs(countriesWithLandBorderNeighbours, source, isCountry)
 
-        Assertions.assertThat(areConnected).isFalse()
+        assertThat(areConnected).isFalse()
     }
+
 }
+
+

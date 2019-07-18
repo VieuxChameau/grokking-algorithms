@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.sorting
 
 import kotlin.random.Random
 

@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.graph
 
 import com.google.common.graph.ValueGraphBuilder
 import org.assertj.core.api.Assertions.assertThat

@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.math
 
 import kotlin.math.max
 import kotlin.math.min

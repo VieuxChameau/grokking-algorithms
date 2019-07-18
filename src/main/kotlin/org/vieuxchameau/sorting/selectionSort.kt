@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.sorting
 
 fun selectionSort(numbers: IntArray): IntArray {
     for (i in numbers.indices) {

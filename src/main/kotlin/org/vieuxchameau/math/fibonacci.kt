@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.math
 
 fun fibonacci(index: UInt): UInt {
     if (index < 2u) {

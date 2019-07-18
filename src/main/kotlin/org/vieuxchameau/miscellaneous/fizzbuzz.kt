@@ -1,4 +1,4 @@
-package org.vieuxchameau
+package org.vieuxchameau.miscellaneous
 
 fun fizzbuzz(): Map<Int, String> {
     return (1..100).map { it to getLabel(it) }.toMap()
