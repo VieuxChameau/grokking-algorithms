@@ -5,8 +5,6 @@ import org.junit.jupiter.params.ParameterizedTest
 import org.junit.jupiter.params.provider.Arguments
 import org.junit.jupiter.params.provider.CsvSource
 import org.junit.jupiter.params.provider.MethodSource
-import org.vieuxchameau.search.binarySearch
-import org.vieuxchameau.search.binarySearchRec
 import java.util.stream.Stream
 
 class BinarySearchKtTest {
@@ -39,17 +37,17 @@ class BinarySearchKtTest {
             "100, 0"
     )
     @ParameterizedTest
-    fun `should find number in array with rec method`(arraySize: Int, nbToFind: Int) {
+    fun `should find number in array with recursive method`(arraySize: Int, nbToFind: Int) {
         val numbers = IntArray(arraySize) { it }
 
-        val index = binarySearchRec(numbers, nbToFind)
+        val index = recursiveBinarySearch(numbers, nbToFind)
 
 
         assertThat(numbers[index]).isEqualTo(nbToFind)
     }
 
     @ParameterizedTest
-    @MethodSource("argProvider")
+    @MethodSource("arrayTestFactory")
     fun `should not find number in array`(arraySize: Int, nbToFind: Int) {
         val numbers = IntArray(arraySize) { it }
 
@@ -59,18 +57,18 @@ class BinarySearchKtTest {
     }
 
     @ParameterizedTest
-    @MethodSource("argProvider")
-    fun `should not find number in array with rec method`(arraySize: Int, nbToFind: Int) {
+    @MethodSource("arrayTestFactory")
+    fun `should not find number in array with recursive method`(arraySize: Int, nbToFind: Int) {
         val numbers = IntArray(arraySize) { it }
 
-        val index = binarySearchRec(numbers, nbToFind)
+        val index = recursiveBinarySearch(numbers, nbToFind)
 
         assertThat(index).isEqualTo(-1)
     }
 
     companion object {
         @JvmStatic
-        fun argProvider() = Stream.of(
+        fun arrayTestFactory() = Stream.of(
                 Arguments.of(0, 1),
                 Arguments.of(1, 1),
                 Arguments.of(100, -5),
