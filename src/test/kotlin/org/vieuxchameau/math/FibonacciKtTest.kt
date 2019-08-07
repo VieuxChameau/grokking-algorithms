@@ -39,4 +39,36 @@ class FibonacciKtTest {
 
         assertThat(result).isEqualTo(expectedResult)
     }
+
+    @CsvSource(
+            "0, 0",
+            "1, 1",
+            "2, 1",
+            "7, 13",
+            "35 , 9227465",
+            "42 , 267914296"
+    )
+    @ParameterizedTest
+    fun `should calculate the nth element of the fibonacci sequence (iterative version)`(index: UInt, expectedResult: UInt) {
+
+        val result = fibonacciIterative(index)
+
+        assertThat(result).isEqualTo(expectedResult)
+    }
+
+    @CsvSource(
+            "0, 0",
+            "1, 1",
+            "2, 1",
+            "7, 13",
+            "35 , 9227465",
+            "42 , 267914296"
+    )
+    @ParameterizedTest
+    fun `should calculate the nth element of the fibonacci sequence (tail recursive version)`(index: UInt, expectedResult: UInt) {
+
+        val result = fibonacciTailRec(index)
+
+        assertThat(result).isEqualTo(expectedResult)
+    }
 }
