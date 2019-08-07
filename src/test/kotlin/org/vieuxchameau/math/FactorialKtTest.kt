@@ -18,4 +18,18 @@ class FactorialKtTest {
 
         assertThat(result).isEqualTo(expectedResult)
     }
+
+    @CsvSource(
+            "0, 1",
+            "1, 1",
+            "5, 120",
+            "12, 479001600"
+    )
+    @ParameterizedTest
+    fun `should calculate the right factorial result with tail recursive version`(number: UInt, expectedResult: UInt) {
+
+        val result = factorialTailRec(number)
+
+        assertThat(result).isEqualTo(expectedResult)
+    }
 }
